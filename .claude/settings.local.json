@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: 어머니의 손맛 레시피 반응형 웹사이트\n\n- 메인 홈페이지 \\(index.html\\)\n- 프로젝트 소개 \\(about.html\\)\n- 요리 아카이브 - 목록/상세 \\(recipes.html, recipe-detail.html\\)\n- AI 아트 시네마 \\(cinema.html\\)\n- AI 갤러리 \\(gallery.html\\)\n- 어머니 AI 톡 채팅 UI \\(ai-talk.html\\)\n- 기록 & 비하인드 \\(story.html\\)\n- 연락하기 \\(contact.html\\)\n- 반응형 CSS 스타일시트 \\(css/style.css\\)\n- 공통 JavaScript \\(js/main.js\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo edit:*)"
+    ]
+  }
+}
