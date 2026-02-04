@@ -4,17 +4,19 @@
 
 /* CSS 변수 */
 :root {
-    --primary-color: #8B4513;
-    --secondary-color: #D2691E;
-    --accent-color: #CD853F;
-    --bg-cream: #FFF8F0;
-    --bg-warm: #FAF0E6;
-    --text-dark: #3E2723;
-    --text-light: #5D4037;
-    --text-muted: #8D6E63;
-    --border-color: #BCAAA4;
-    --shadow-soft: 0 2px 15px rgba(139, 69, 19, 0.1);
-    --shadow-hover: 0 5px 25px rgba(139, 69, 19, 0.2);
+    --primary-color: #E91E63;
+    --secondary-color: #FF6B9D;
+    --accent-color: #FFB6C1;
+    --bg-cream: #FFF0F5;
+    --bg-warm: #FFE4EC;
+    --bg-lavender: #F3E5F5;
+    --bg-peach: #FFECD2;
+    --text-dark: #4A4A4A;
+    --text-light: #666666;
+    --text-muted: #888888;
+    --border-color: #F8BBD9;
+    --shadow-soft: 0 2px 15px rgba(233, 30, 99, 0.1);
+    --shadow-hover: 0 5px 25px rgba(233, 30, 99, 0.2);
     --transition: all 0.3s ease;
     --font-title: 'Noto Serif KR', Georgia, serif;
     --font-body: 'Noto Sans KR', -apple-system, sans-serif;
@@ -209,14 +211,14 @@ main {
 }
 
 .btn-primary {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 100%);
     color: white;
 }
 
 .btn-primary:hover {
-    background: var(--secondary-color);
+    background: linear-gradient(135deg, #FF8E9E 0%, #FF6B9D 100%);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 5px 20px rgba(233, 30, 99, 0.4);
 }
 
 .btn-secondary {
@@ -269,16 +271,18 @@ main {
 }
 
 .card {
-    background: white;
-    border-radius: 15px;
+    background: linear-gradient(145deg, #ffffff 0%, #FFF0F5 100%);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.15);
     transition: var(--transition);
+    border: 1px solid rgba(255, 182, 193, 0.3);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(233, 30, 99, 0.25);
+    border-color: var(--secondary-color);
 }
 
 .card-image {
@@ -321,7 +325,7 @@ main {
 
 /* 페이지 헤더 */
 .page-header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, #FF6B9D 0%, #FF8E9E 50%, #FFB6C1 100%);
     color: white;
     padding: 4rem 2rem;
     text-align: center;
@@ -351,7 +355,7 @@ main {
 
 .filter-btn {
     padding: 0.6rem 1.5rem;
-    border: 2px solid var(--border-color);
+    border: 2px solid #FFB6C1;
     border-radius: 25px;
     background: white;
     color: var(--text-light);
@@ -361,8 +365,8 @@ main {
 
 .filter-btn:hover,
 .filter-btn.active {
-    border-color: var(--primary-color);
-    background: var(--primary-color);
+    border-color: #FF69B4;
+    background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 100%);
     color: white;
 }
 
@@ -388,11 +392,12 @@ main {
 }
 
 .recipe-section {
-    background: white;
+    background: linear-gradient(145deg, #ffffff 0%, #FFF5F8 100%);
     padding: 2rem;
-    border-radius: 15px;
+    border-radius: 20px;
     margin-bottom: 2rem;
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.1);
+    border: 1px solid rgba(255, 182, 193, 0.2);
 }
 
 .recipe-section h2 {
@@ -552,7 +557,7 @@ main {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: var(--accent-color);
+    background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -561,18 +566,18 @@ main {
 }
 
 .message.user .message-avatar {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, #87CEEB 0%, #6BB3D9 100%);
 }
 
 .message-content {
     max-width: 70%;
     padding: 1rem 1.5rem;
     border-radius: 20px;
-    background: var(--bg-warm);
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFE4EC 100%);
 }
 
 .message.user .message-content {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 100%);
     color: white;
 }
 
@@ -627,7 +632,7 @@ main {
     transform: translateX(-50%);
     width: 3px;
     height: 100%;
-    background: var(--border-color);
+    background: linear-gradient(180deg, #FFB6C1 0%, #FF69B4 50%, #E91E63 100%);
 }
 
 .timeline-item {
@@ -657,9 +662,10 @@ main {
     position: absolute;
     width: 20px;
     height: 20px;
-    background: var(--primary-color);
+    background: linear-gradient(135deg, #FF69B4 0%, #E91E63 100%);
     border-radius: 50%;
     top: 2.5rem;
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.4);
 }
 
 .timeline-item:nth-child(odd) .timeline-dot {
@@ -716,7 +722,7 @@ main {
    푸터
    =================================== */
 footer {
-    background: var(--text-dark);
+    background: linear-gradient(135deg, #4A4A4A 0%, #2D2D2D 100%);
     color: white;
     padding: 3rem 2rem;
     margin-top: 3rem;
@@ -733,7 +739,7 @@ footer {
 .footer-section h3 {
     font-family: var(--font-title);
     margin-bottom: 1rem;
-    color: var(--accent-color);
+    color: #FFB6C1;
 }
 
 .footer-section p,
