@@ -54,7 +54,7 @@ img {
    헤더 & 네비게이션
    =================================== */
 header {
-    background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg-cream) 100%);
+    background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 100%);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
