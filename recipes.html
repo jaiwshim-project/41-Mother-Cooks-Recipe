@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요리 아카이브 - 어머니의 손맛 레시피</title>
+    <meta name="description" content="어머니의 손맛이 담긴 레시피 아카이브">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">어머니의 <span>손맛</span></a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="recipes.html" class="active">요리 아카이브</a></li>
+                    <li><a href="cinema.html">AI 시네마</a></li>
+                    <li><a href="gallery.html">AI 갤러리</a></li>
+                    <li><a href="ai-talk.html">어머니 AI 톡</a></li>
+                    <li><a href="story.html">이야기</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 -->
+    <main>
+        <!-- 페이지 헤더 -->
+        <section class="page-header">
+            <h1>요리 아카이브</h1>
+            <p>어머니의 손때 묻은 레시피들을 만나보세요</p>
+        </section>
+
+        <!-- 필터 & 레시피 목록 -->
+        <section class="section">
+            <div class="container">
+                <!-- 필터 바 -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">전체</button>
+                    <button class="filter-btn" data-filter="spring">봄</button>
+                    <button class="filter-btn" data-filter="summer">여름</button>
+                    <button class="filter-btn" data-filter="autumn">가을</button>
+                    <button class="filter-btn" data-filter="winter">겨울</button>
+                    <button class="filter-btn" data-filter="comfort">위로</button>
+                    <button class="filter-btn" data-filter="celebration">특별한 날</button>
+                </div>
+
+                <!-- 레시피 카드 그리드 -->
+                <div class="card-grid">
+                    <!-- 된장찌개 -->
+                    <div class="card" data-category="comfort">
+                        <div class="card-image" style="background: linear-gradient(135deg, #8B4513, #A0522D);">
+                            🍲
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">된장찌개</h3>
+                            <p class="card-text">집 냄새가 나는 그 맛. 어머니가 가장 자주 해주시던 요리.</p>
+                            <a href="recipe-detail.html?id=1" class="card-link">레시피 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 김치찌개 -->
+                    <div class="card" data-category="winter">
+                        <div class="card-image" style="background: linear-gradient(135deg, #CD5C5C, #DC143C);">
+                            🥘
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">김치찌개</h3>
+                            <p class="card-text">잘 익은 김치로 끓여낸, 겨울철 몸을 녹이는 뜨끈한 한 그릇.</p>
+                            <a href="recipe-detail.html?id=2" class="card-link">레시피 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 잡채 -->
+                    <div class="card" data-category="celebration">
+                        <div class="card-image" style="background: linear-gradient(135deg, #DAA520, #FFD700);">
+                            🍝
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">잡채</h3>
+                            <p class="card-text">명절이면 꼭 올라오던 잡채. 어머니의 정성이 가득한 특별 요리.</p>
+                            <a href="recipe-detail.html?id=3" class="card-link">레시피 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 미역국 -->
+                    <div class="card" data-category="comfort">
+                        <div class="card-image" style="background: linear-gradient(135deg, #2E8B57, #3CB371);">
+                            🥣
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">미역국</h3>
+                            <p class="card-text">생일이면 꼭 끓여주시던, 깊고 진한 사골 미역국.</p>
+                            <a href="recipe-detail.html?id=4" class="card-link">레시피 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 나물 비빔밥 -->
+                    <div class="card" data-category="spring">
+                        <div class="card-image" style="background: linear-gradient(135deg, #9ACD32, #6B8E23);">
+                            🍚
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">나물 비빔밥</h3>
+                            <p class="card-text">봄나물로 만든 오색 비빔밥. 계절의 맛을 한 그릇에.</p>
+                            <a href="recipe-detail.html?id=5" class="card-link">레시피 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 콩국수 -->
+                    <div class="card" data-category="summer">
+                        <div class="card-image" style="background: linear-gradient(135deg, #F5DEB3, #DEB887);">
+                            🍜
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">콩국수</h3>
+                            <p class="card-text">무더운 여름, 시원하고 고소한 어머니표 콩국수.</p>
+                            <a href="recipe-detail.html?id=6" class="card-link">레시피 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 호박죽 -->
+                    <div class="card" data-category="autumn">
+                        <div class="card-image" style="background: linear-gradient(135deg, #FF8C00, #FFA500);">
+                            🎃
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">호박죽</h3>
+                            <p class="card-text">가을 늙은 호박으로 만든, 달콤하고 부드러운 위로의 한 그릇.</p>
+                            <a href="recipe-detail.html?id=7" class="card-link">레시피 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 동치미 -->
+                    <div class="card" data-category="winter">
+                        <div class="card-image" style="background: linear-gradient(135deg, #87CEEB, #ADD8E6);">
+                            🥒
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">동치미</h3>
+                            <p class="card-text">겨울 별미, 시원하게 익은 동치미. 국물맛이 일품.</p>
+                            <a href="recipe-detail.html?id=8" class="card-link">레시피 보기 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI 도슨트 안내 -->
+        <section class="section" style="background: var(--bg-warm);">
+            <div class="container text-center">
+                <h2 class="section-title">요리에 대해 더 알고 싶으신가요?</h2>
+                <p class="section-subtitle">
+                    각 레시피 페이지에서 AI 도슨트 기능을 통해<br>
+                    요리에 얽힌 이야기를 음성으로 들을 수 있습니다.
+                </p>
+                <a href="ai-talk.html" class="btn btn-primary">어머니께 직접 물어보기</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>어머니의 손맛 레시피</h3>
+                <p>한 어머니의 요리 인생을<br>디지털로 기록합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>메뉴</h3>
+                <p><a href="about.html">소개</a></p>
+                <p><a href="recipes.html">요리 아카이브</a></p>
+                <p><a href="cinema.html">AI 시네마</a></p>
+                <p><a href="gallery.html">AI 갤러리</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>연결</h3>
+                <p><a href="ai-talk.html">어머니 AI 톡</a></p>
+                <p><a href="story.html">이야기</a></p>
+                <p><a href="contact.html">연락하기</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 어머니의 손맛 레시피. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

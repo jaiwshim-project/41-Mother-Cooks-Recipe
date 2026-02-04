@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연락하기 - 어머니의 손맛 레시피</title>
+    <meta name="description" content="어머니의 손맛 레시피 프로젝트에 연락하기">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">어머니의 <span>손맛</span></a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="recipes.html">요리 아카이브</a></li>
+                    <li><a href="cinema.html">AI 시네마</a></li>
+                    <li><a href="gallery.html">AI 갤러리</a></li>
+                    <li><a href="ai-talk.html">어머니 AI 톡</a></li>
+                    <li><a href="story.html">이야기</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 -->
+    <main>
+        <!-- 페이지 헤더 -->
+        <section class="page-header">
+            <h1>연락하기</h1>
+            <p>여러분의 이야기를 들려주세요</p>
+        </section>
+
+        <!-- 연락 폼 섹션 -->
+        <section class="section">
+            <div class="container">
+                <div class="card-grid" style="max-width: 1000px; margin: 0 auto;">
+                    <!-- 연락 폼 -->
+                    <div class="contact-form" style="max-width: 100%;">
+                        <h2 style="color: var(--primary-color); margin-bottom: 1.5rem; font-family: var(--font-title);">
+                            메시지 보내기
+                        </h2>
+
+                        <form id="contactForm" onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">이름</label>
+                                <input type="text" id="name" name="name" required placeholder="이름을 입력해주세요">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">이메일</label>
+                                <input type="email" id="email" name="email" required placeholder="이메일 주소를 입력해주세요">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">제목</label>
+                                <input type="text" id="subject" name="subject" required placeholder="문의 제목을 입력해주세요">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">메시지</label>
+                                <textarea id="message" name="message" required placeholder="전하고 싶은 이야기를 적어주세요"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">보내기</button>
+                        </form>
+                    </div>
+
+                    <!-- 연락 정보 -->
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="recipe-section">
+                            <h2>다른 방법으로 연락하기</h2>
+
+                            <div style="margin-top: 1.5rem;">
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>📧 이메일</strong><br>
+                                    <span style="color: var(--text-muted);">hello@mothers-recipe.com</span>
+                                </p>
+
+                                <p style="margin-bottom: 1rem;">
+                                    <strong>📱 SNS</strong><br>
+                                    <span style="color: var(--text-muted);">@mothers_recipe_kr</span>
+                                </p>
+
+                                <p>
+                                    <strong>📍 위치</strong><br>
+                                    <span style="color: var(--text-muted);">서울특별시</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="recipe-section">
+                            <h2>자주 묻는 질문</h2>
+
+                            <details style="margin-top: 1rem; cursor: pointer;">
+                                <summary style="font-weight: 500; padding: 0.5rem 0;">책은 어디서 구매할 수 있나요?</summary>
+                                <p style="color: var(--text-muted); padding: 1rem 0; font-size: 0.95rem;">
+                                    전국 서점과 온라인 서점에서 구매하실 수 있습니다.
+                                </p>
+                            </details>
+
+                            <details style="cursor: pointer;">
+                                <summary style="font-weight: 500; padding: 0.5rem 0;">AI 톡은 실제 AI인가요?</summary>
+                                <p style="color: var(--text-muted); padding: 1rem 0; font-size: 0.95rem;">
+                                    네, 실제 AI 기술을 사용하여 어머니의 관점에서 대화합니다.
+                                    책의 내용과 어머니의 말투를 학습하여 자연스러운 대화가 가능합니다.
+                                </p>
+                            </details>
+
+                            <details style="cursor: pointer;">
+                                <summary style="font-weight: 500; padding: 0.5rem 0;">협업 문의는 어떻게 하나요?</summary>
+                                <p style="color: var(--text-muted); padding: 1rem 0; font-size: 0.95rem;">
+                                    위 연락 폼을 통해 문의해 주시면 검토 후 답변 드리겠습니다.
+                                </p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 공유하기 섹션 -->
+        <section class="section" style="background: var(--bg-warm);">
+            <div class="container text-center">
+                <h2 class="section-title">이 공간을 공유해주세요</h2>
+                <p class="section-subtitle">
+                    어머니의 손맛 레시피를 주변에 알려주세요.<br>
+                    더 많은 분들이 따뜻한 이야기를 만날 수 있습니다.
+                </p>
+
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                    <button class="btn btn-outline" onclick="shareKakao()">
+                        💬 카카오톡 공유
+                    </button>
+                    <button class="btn btn-outline" onclick="shareTwitter()">
+                        🐦 트위터 공유
+                    </button>
+                    <button class="btn btn-outline" onclick="shareFacebook()">
+                        📘 페이스북 공유
+                    </button>
+                    <button class="btn btn-outline" onclick="copyLink()">
+                        🔗 링크 복사
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 뉴스레터 -->
+        <section class="section">
+            <div class="container">
+                <div class="contact-form" style="max-width: 500px; margin: 0 auto; text-align: center;">
+                    <h2 style="color: var(--primary-color); margin-bottom: 0.5rem; font-family: var(--font-title);">
+                        소식 받기
+                    </h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        새로운 레시피와 콘텐츠 소식을 받아보세요.
+                    </p>
+
+                    <form onsubmit="handleNewsletter(event)" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                        <input type="email" placeholder="이메일 주소" required
+                               style="flex: 1; min-width: 200px; padding: 1rem; border: 2px solid var(--border-color); border-radius: 10px;">
+                        <button type="submit" class="btn btn-primary">구독하기</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>어머니의 손맛 레시피</h3>
+                <p>한 어머니의 요리 인생을<br>디지털로 기록합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>메뉴</h3>
+                <p><a href="about.html">소개</a></p>
+                <p><a href="recipes.html">요리 아카이브</a></p>
+                <p><a href="cinema.html">AI 시네마</a></p>
+                <p><a href="gallery.html">AI 갤러리</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>연결</h3>
+                <p><a href="ai-talk.html">어머니 AI 톡</a></p>
+                <p><a href="story.html">이야기</a></p>
+                <p><a href="contact.html">연락하기</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 어머니의 손맛 레시피. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 폼 제출 처리
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('메시지가 전송되었습니다. 감사합니다!');
+            e.target.reset();
+        }
+
+        // 뉴스레터 구독
+        function handleNewsletter(e) {
+            e.preventDefault();
+            alert('구독해 주셔서 감사합니다!');
+            e.target.reset();
+        }
+
+        // 공유 기능들
+        function shareKakao() {
+            alert('카카오톡 공유 기능은 카카오 SDK 연동이 필요합니다.');
+        }
+
+        function shareTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('어머니의 손맛 레시피 - 한 어머니의 요리 인생을 디지털로 기록합니다.');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+
+        function shareFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('링크가 복사되었습니다!');
+            });
+        }
+    </script>
+</body>
+</html>

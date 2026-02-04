@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>된장찌개 - 어머니의 손맛 레시피</title>
+    <meta name="description" content="어머니의 된장찌개 레시피와 이야기">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">어머니의 <span>손맛</span></a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="recipes.html" class="active">요리 아카이브</a></li>
+                    <li><a href="cinema.html">AI 시네마</a></li>
+                    <li><a href="gallery.html">AI 갤러리</a></li>
+                    <li><a href="ai-talk.html">어머니 AI 톡</a></li>
+                    <li><a href="story.html">이야기</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 -->
+    <main>
+        <div class="recipe-detail">
+            <!-- 요리명 -->
+            <h1>🍲 된장찌개</h1>
+            <p class="recipe-intro">
+                "집에 오면 이 냄새가 나야 해. 그래야 집 같지."<br>
+                - 어머니의 말씀 중
+            </p>
+
+            <!-- 레시피 본문 -->
+            <div class="recipe-section">
+                <h2>재료</h2>
+                <ul style="list-style: none; line-height: 2;">
+                    <li>🥬 애호박 1/2개</li>
+                    <li>🧅 양파 1/2개</li>
+                    <li>🧄 마늘 3쪽</li>
+                    <li>🌶️ 청양고추 1개</li>
+                    <li>🫘 두부 1/2모</li>
+                    <li>🍄 표고버섯 2개</li>
+                    <li>🥢 된장 2큰술</li>
+                    <li>🦐 멸치 다시마 육수 3컵</li>
+                </ul>
+            </div>
+
+            <div class="recipe-section">
+                <h2>만드는 법</h2>
+                <ol style="line-height: 2.5; padding-left: 1.5rem;">
+                    <li>멸치와 다시마로 육수를 우려냅니다. 어머니는 항상 "육수가 반이야"라고 하셨어요.</li>
+                    <li>애호박, 양파, 버섯은 먹기 좋은 크기로 썹니다.</li>
+                    <li>두부는 도톰하게 깍뚝 썰기 합니다.</li>
+                    <li>육수가 끓으면 된장을 풀고, 야채를 넣습니다.</li>
+                    <li>야채가 익으면 두부와 다진 마늘을 넣습니다.</li>
+                    <li>마지막에 청양고추를 넣고 한소끔 더 끓입니다.</li>
+                    <li>불을 끄기 직전, 파를 송송 썰어 올립니다.</li>
+                </ol>
+            </div>
+
+            <div class="recipe-section">
+                <h2>이 요리가 만들어지던 날</h2>
+                <p style="font-style: italic; color: var(--text-muted);">
+                    된장찌개는 특별한 날의 요리가 아니었습니다. 오히려 가장 평범한 날,
+                    학교에서 돌아와 현관문을 열면 맡았던 그 냄새였습니다.
+                </p>
+                <br>
+                <p>
+                    어머니는 늘 "된장찌개는 정성이야"라고 하셨습니다. 같은 재료로 만들어도
+                    급하게 만들면 맛이 다르다고요. 뚝배기를 불에 올려놓고, 천천히 익어가는
+                    소리를 들으며 밥상을 차리시던 어머니의 뒷모습이 떠오릅니다.
+                </p>
+                <br>
+                <p>
+                    지금도 된장찌개 냄새를 맡으면, 그때 그 부엌으로 돌아간 것 같은 기분이 듭니다.
+                </p>
+            </div>
+
+            <!-- 액션 버튼들 -->
+            <div class="recipe-section">
+                <h2>더 알아보기</h2>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="playDocent('된장찌개는 어머니가 가장 자주 해주시던 요리입니다. 집에 들어서면 맡아지던 그 냄새, 구수하고 따뜻한 된장 향이 온 집안에 퍼져있었죠. 어머니는 늘 말씀하셨어요. 된장찌개는 정성이라고. 급하게 만들면 맛이 다르다고요. 그래서 항상 천천히, 정성스럽게 끓이셨습니다.')">
+                        🎧 AI 도슨트 듣기
+                    </button>
+                    <a href="cinema.html" class="btn btn-outline">🎬 관련 영상 보기</a>
+                    <a href="ai-talk.html?topic=된장찌개" class="btn btn-outline">💬 어머니께 물어보기</a>
+                </div>
+            </div>
+
+            <!-- 관련 요리 -->
+            <div class="recipe-section">
+                <h2>함께 보면 좋은 요리</h2>
+                <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">김치찌개</h3>
+                            <p class="card-text">겨울철 뜨끈한 한 그릇</p>
+                            <a href="recipe-detail.html?id=2" class="card-link">보기 →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">나물 비빔밥</h3>
+                            <p class="card-text">봄나물 오색 비빔밥</p>
+                            <a href="recipe-detail.html?id=5" class="card-link">보기 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="recipes.html" class="btn btn-outline">← 목록으로 돌아가기</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>어머니의 손맛 레시피</h3>
+                <p>한 어머니의 요리 인생을<br>디지털로 기록합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>메뉴</h3>
+                <p><a href="about.html">소개</a></p>
+                <p><a href="recipes.html">요리 아카이브</a></p>
+                <p><a href="cinema.html">AI 시네마</a></p>
+                <p><a href="gallery.html">AI 갤러리</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>연결</h3>
+                <p><a href="ai-talk.html">어머니 AI 톡</a></p>
+                <p><a href="story.html">이야기</a></p>
+                <p><a href="contact.html">연락하기</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 어머니의 손맛 레시피. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 아트 시네마 - 어머니의 손맛 레시피</title>
+    <meta name="description" content="AI가 그려낸 어머니의 부엌, 감성 영상 갤러리">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">어머니의 <span>손맛</span></a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="recipes.html">요리 아카이브</a></li>
+                    <li><a href="cinema.html" class="active">AI 시네마</a></li>
+                    <li><a href="gallery.html">AI 갤러리</a></li>
+                    <li><a href="ai-talk.html">어머니 AI 톡</a></li>
+                    <li><a href="story.html">이야기</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 -->
+    <main>
+        <!-- 페이지 헤더 -->
+        <section class="page-header">
+            <h1>AI 아트 시네마</h1>
+            <p>AI가 상상한 어머니의 부엌, 음식이 완성되는 순간들</p>
+        </section>
+
+        <!-- 메인 영상 -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">오늘의 상영작</h2>
+                <p class="section-subtitle">새벽 5시, 어머니의 부엌</p>
+
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶️</div>
+                        <p>새벽 5시, 어머니의 부엌</p>
+                        <p style="font-size: 0.9rem; opacity: 0.7;">2:30</p>
+                    </div>
+                </div>
+
+                <div class="recipe-section" style="max-width: 800px; margin: 0 auto;">
+                    <p>
+                        아직 해가 뜨기 전, 고요한 새벽. 어머니의 하루는 부엌에서 시작됩니다.
+                        찬장을 열고, 쌀을 씻고, 국을 끓이는 소리. AI가 상상한 그 새벽의 풍경입니다.
+                    </p>
+                    <br>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="recipe-detail.html?id=1" class="btn btn-outline">🍲 관련 요리: 된장찌개</a>
+                        <a href="ai-talk.html" class="btn btn-outline">💬 어머니께 이 영상에 대해 물어보기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 영상 목록 -->
+        <section class="section" style="background: var(--bg-warm);">
+            <div class="container">
+                <h2 class="section-title">시네마 컬렉션</h2>
+                <p class="section-subtitle">AI가 그려낸 어머니의 요리 이야기</p>
+
+                <div class="card-grid">
+                    <!-- 영상 1 -->
+                    <div class="card">
+                        <div class="card-image" style="background: linear-gradient(135deg, #2c3e50, #34495e);">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 3rem;">🌅</div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">2:30</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">새벽 5시, 어머니의 부엌</h3>
+                            <p class="card-text">고요한 새벽, 하루를 준비하는 어머니의 손길</p>
+                            <a href="#" class="card-link">영상 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 영상 2 -->
+                    <div class="card">
+                        <div class="card-image" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 3rem;">🥘</div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">3:15</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">김장의 계절</h3>
+                            <p class="card-text">온 가족이 모여 김장하던 그 날의 풍경</p>
+                            <a href="#" class="card-link">영상 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 영상 3 -->
+                    <div class="card">
+                        <div class="card-image" style="background: linear-gradient(135deg, #27ae60, #2ecc71);">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 3rem;">🌸</div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">2:45</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">봄나물 캐는 날</h3>
+                            <p class="card-text">산에서 캐온 봄나물로 차리는 밥상</p>
+                            <a href="#" class="card-link">영상 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 영상 4 -->
+                    <div class="card">
+                        <div class="card-image" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 3rem;">🎂</div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">2:00</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">생일날 미역국</h3>
+                            <p class="card-text">생일 아침, 정성껏 끓이는 미역국</p>
+                            <a href="#" class="card-link">영상 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 영상 5 -->
+                    <div class="card">
+                        <div class="card-image" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 3rem;">🌙</div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">3:00</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">추석 전날 밤</h3>
+                            <p class="card-text">명절 음식을 준비하는 밤샘의 기록</p>
+                            <a href="#" class="card-link">영상 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- 영상 6 -->
+                    <div class="card">
+                        <div class="card-image" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 3rem;">❄️</div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">2:20</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">눈 오는 날의 호박죽</h3>
+                            <p class="card-text">겨울 첫눈에 끓여주시던 달콤한 호박죽</p>
+                            <a href="#" class="card-link">영상 보기 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 안내 섹션 -->
+        <section class="section">
+            <div class="container text-center">
+                <h2 class="section-title">AI 아트 시네마에 대하여</h2>
+                <p class="section-subtitle">
+                    이 영상들은 실제 촬영 영상이 아닌, AI가 상상하여 그려낸 이미지입니다.<br>
+                    어머니의 이야기와 레시피를 바탕으로, AI가 그 순간을 시각화했습니다.<br>
+                    기술을 통해 추억을 새롭게 경험하는 방법을 제안합니다.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>어머니의 손맛 레시피</h3>
+                <p>한 어머니의 요리 인생을<br>디지털로 기록합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>메뉴</h3>
+                <p><a href="about.html">소개</a></p>
+                <p><a href="recipes.html">요리 아카이브</a></p>
+                <p><a href="cinema.html">AI 시네마</a></p>
+                <p><a href="gallery.html">AI 갤러리</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>연결</h3>
+                <p><a href="ai-talk.html">어머니 AI 톡</a></p>
+                <p><a href="story.html">이야기</a></p>
+                <p><a href="contact.html">연락하기</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 어머니의 손맛 레시피. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

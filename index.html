@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어머니의 손맛 레시피</title>
+    <meta name="description" content="이곳은 레시피가 아니라, 한 어머니의 시간이 머무는 공간입니다.">
+
+    <!-- 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">어머니의 <span>손맛</span></a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="recipes.html">요리 아카이브</a></li>
+                    <li><a href="cinema.html">AI 시네마</a></li>
+                    <li><a href="gallery.html">AI 갤러리</a></li>
+                    <li><a href="ai-talk.html">어머니 AI 톡</a></li>
+                    <li><a href="story.html">이야기</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 -->
+    <main>
+        <!-- 히어로 섹션 -->
+        <section class="hero" style="background: linear-gradient(rgba(62, 39, 35, 0.5), rgba(62, 39, 35, 0.7)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 800%22><rect fill=%22%23D2691E%22 width=%221200%22 height=%22800%22/><circle cx=%22200%22 cy=%22300%22 r=%22150%22 fill=%22%23CD853F%22 opacity=%220.3%22/><circle cx=%22900%22 cy=%22500%22 r=%22200%22 fill=%22%238B4513%22 opacity=%220.3%22/></svg>'); background-size: cover;">
+            <div class="hero-content">
+                <h1>"이곳은 레시피가 아니라,<br>한 어머니의 시간이 머무는 공간입니다"</h1>
+                <p>수십 년간 가족을 위해 차려온 밥상,<br>그 안에 담긴 사랑과 정성을 AI 기술로 되살립니다.</p>
+                <div class="hero-buttons">
+                    <a href="recipes.html" class="btn btn-primary">오늘의 요리 보기</a>
+                    <a href="ai-talk.html" class="btn btn-secondary">어머니와 대화하기</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 프로젝트 소개 -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">이 프로젝트에 대하여</h2>
+                <p class="section-subtitle">
+                    『어머니의 손맛 레시피』는 단순한 요리책이 아닙니다.<br>
+                    한 어머니가 평생 쌓아온 요리의 지혜와 가족에 대한 사랑을<br>
+                    AI 기술을 통해 새롭게 만나볼 수 있는 디지털 공간입니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- 오늘의 콘텐츠 -->
+        <section class="section" style="background: var(--bg-warm);">
+            <div class="container">
+                <h2 class="section-title">오늘의 이야기</h2>
+                <p class="section-subtitle">매일 새롭게 만나는 어머니의 요리와 지혜</p>
+
+                <div class="card-grid">
+                    <!-- 오늘의 요리 -->
+                    <div class="card">
+                        <div class="card-image" style="background: linear-gradient(135deg, #8B4513, #D2691E);">
+                            🍲
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">오늘의 요리</h3>
+                            <p class="card-text">된장찌개 - 어머니가 가장 자주 해주시던, 집 냄새가 나는 그 맛</p>
+                            <a href="recipes.html" class="card-link">
+                                레시피 보기 →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 오늘의 영상 -->
+                    <div class="card">
+                        <div class="card-image" style="background: linear-gradient(135deg, #CD853F, #DEB887);">
+                            🎬
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">오늘의 영상</h3>
+                            <p class="card-text">AI가 그려낸 어머니의 부엌 - 새벽 5시의 고요한 손길</p>
+                            <a href="cinema.html" class="card-link">
+                                영상 보기 →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 오늘의 한마디 -->
+                    <div class="card">
+                        <div class="card-image" style="background: linear-gradient(135deg, #A0522D, #BC8F8F);">
+                            💬
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">오늘의 한마디</h3>
+                            <p class="card-text">"요리는 사랑이야. 먹는 사람 생각하면서 만들면 다 맛있어."</p>
+                            <a href="ai-talk.html" class="card-link">
+                                더 들어보기 →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 메뉴 안내 -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">둘러보기</h2>
+                <p class="section-subtitle">어머니의 손맛이 담긴 다양한 콘텐츠를 만나보세요</p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">📖 요리 아카이브</h3>
+                            <p class="card-text">어머니의 손때 묻은 레시피들을 디지털로 보존했습니다. 계절별, 상황별로 찾아보세요.</p>
+                            <a href="recipes.html" class="card-link">바로가기 →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">🎥 AI 아트 시네마</h3>
+                            <p class="card-text">AI가 상상한 어머니의 부엌, 음식이 완성되는 순간들을 영상으로 만나보세요.</p>
+                            <a href="cinema.html" class="card-link">바로가기 →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">🖼️ AI 갤러리</h3>
+                            <p class="card-text">요리에 담긴 감성을 AI 아트로 표현했습니다. 음식 너머의 이야기를 감상하세요.</p>
+                            <a href="gallery.html" class="card-link">바로가기 →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">💭 어머니 AI 톡</h3>
+                            <p class="card-text">어머니께 직접 요리에 대해 물어보세요. AI가 어머니의 마음으로 답해드립니다.</p>
+                            <a href="ai-talk.html" class="card-link">바로가기 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>어머니의 손맛 레시피</h3>
+                <p>한 어머니의 요리 인생을<br>디지털로 기록합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>메뉴</h3>
+                <p><a href="about.html">소개</a></p>
+                <p><a href="recipes.html">요리 아카이브</a></p>
+                <p><a href="cinema.html">AI 시네마</a></p>
+                <p><a href="gallery.html">AI 갤러리</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>연결</h3>
+                <p><a href="ai-talk.html">어머니 AI 톡</a></p>
+                <p><a href="story.html">이야기</a></p>
+                <p><a href="contact.html">연락하기</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 어머니의 손맛 레시피. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

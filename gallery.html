@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 갤러리 - 어머니의 손맛 레시피</title>
+    <meta name="description" content="AI 아트로 표현한 어머니의 요리와 감성">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .gallery-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            position: relative;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow: auto;
+            text-align: center;
+        }
+        .modal-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .theme-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .theme-btn {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        .theme-btn:hover, .theme-btn.active {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+        .theme-btn .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">어머니의 <span>손맛</span></a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="recipes.html">요리 아카이브</a></li>
+                    <li><a href="cinema.html">AI 시네마</a></li>
+                    <li><a href="gallery.html" class="active">AI 갤러리</a></li>
+                    <li><a href="ai-talk.html">어머니 AI 톡</a></li>
+                    <li><a href="story.html">이야기</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 -->
+    <main>
+        <!-- 페이지 헤더 -->
+        <section class="page-header">
+            <h1>AI 갤러리</h1>
+            <p>요리에 담긴 감성을 AI 아트로 만나보세요</p>
+        </section>
+
+        <!-- 테마 선택 -->
+        <section class="section">
+            <div class="container">
+                <div class="theme-nav">
+                    <button class="theme-btn active" data-theme="season">
+                        <span class="icon">🌸</span>
+                        계절의 음식
+                    </button>
+                    <button class="theme-btn" data-theme="comfort">
+                        <span class="icon">🤗</span>
+                        위로의 음식
+                    </button>
+                    <button class="theme-btn" data-theme="family">
+                        <span class="icon">👨‍👩‍👧‍👦</span>
+                        가족의 음식
+                    </button>
+                </div>
+
+                <!-- 갤러리 그리드 -->
+                <div class="gallery-grid">
+                    <!-- 작품 1 -->
+                    <div class="gallery-item" onclick="openGalleryModal('', '봄나물 비빔밥', '봄이 오면 어머니는 산에 나물을 캐러 가셨습니다. 그 나물들로 차린 비빔밥에는 봄의 향기가 가득했습니다.')" style="background: linear-gradient(135deg, #a8e6cf, #88d8b0);">
+                        <div class="gallery-placeholder">🌱</div>
+                        <div class="gallery-overlay">
+                            <h4>봄나물 비빔밥</h4>
+                            <p>봄의 향기를 담은 한 그릇</p>
+                        </div>
+                    </div>
+
+                    <!-- 작품 2 -->
+                    <div class="gallery-item" onclick="openGalleryModal('', '여름 콩국수', '무더운 여름, 시원한 콩국수 한 그릇이면 더위가 물러갔습니다.')" style="background: linear-gradient(135deg, #ffeaa7, #fdcb6e);">
+                        <div class="gallery-placeholder">🍜</div>
+                        <div class="gallery-overlay">
+                            <h4>여름 콩국수</h4>
+                            <p>더위를 식히는 고소함</p>
+                        </div>
+                    </div>
+
+                    <!-- 작품 3 -->
+                    <div class="gallery-item" onclick="openGalleryModal('', '가을 송이밥', '가을이면 아버지가 캐오신 송이로 밥을 지으셨습니다.')" style="background: linear-gradient(135deg, #dfe6e9, #b2bec3);">
+                        <div class="gallery-placeholder">🍄</div>
+                        <div class="gallery-overlay">
+                            <h4>가을 송이밥</h4>
+                            <p>산의 향기를 품은 밥</p>
+                        </div>
+                    </div>
+
+                    <!-- 작품 4 -->
+                    <div class="gallery-item" onclick="openGalleryModal('', '겨울 동치미', '겨울 밤, 시원한 동치미 국물은 최고의 간식이었습니다.')" style="background: linear-gradient(135deg, #74b9ff, #0984e3);">
+                        <div class="gallery-placeholder">❄️</div>
+                        <div class="gallery-overlay">
+                            <h4>겨울 동치미</h4>
+                            <p>시원하게 익은 겨울 별미</p>
+                        </div>
+                    </div>
+
+                    <!-- 작품 5 -->
+                    <div class="gallery-item" onclick="openGalleryModal('', '위로의 미역국', '힘든 날, 어머니의 미역국 한 그릇이면 마음이 따뜻해졌습니다.')" style="background: linear-gradient(135deg, #55efc4, #00b894);">
+                        <div class="gallery-placeholder">🥣</div>
+                        <div class="gallery-overlay">
+                            <h4>위로의 미역국</h4>
+                            <p>마음을 보듬는 한 그릇</p>
+                        </div>
+                    </div>
+
+                    <!-- 작품 6 -->
+                    <div class="gallery-item" onclick="openGalleryModal('', '그리운 된장찌개', '집 떠나 있을 때 가장 그리운 맛, 어머니의 된장찌개.')" style="background: linear-gradient(135deg, #fab1a0, #e17055);">
+                        <div class="gallery-placeholder">🍲</div>
+                        <div class="gallery-overlay">
+                            <h4>그리운 된장찌개</h4>
+                            <p>집 냄새가 나는 그 맛</p>
+                        </div>
+                    </div>
+
+                    <!-- 작품 7 -->
+                    <div class="gallery-item" onclick="openGalleryModal('', '명절 잡채', '온 가족이 모이는 날, 어머니의 잡채는 빠지지 않았습니다.')" style="background: linear-gradient(135deg, #ffeaa7, #e17055);">
+                        <div class="gallery-placeholder">🍝</div>
+                        <div class="gallery-overlay">
+                            <h4>명절 잡채</h4>
+                            <p>가족이 모이는 날의 특별 요리</p>
+                        </div>
+                    </div>
+
+                    <!-- 작품 8 -->
+                    <div class="gallery-item" onclick="openGalleryModal('', '생일 미역국', '생일 아침마다 끓여주시던 미역국, 그 사랑의 맛.')" style="background: linear-gradient(135deg, #fd79a8, #e84393);">
+                        <div class="gallery-placeholder">🎂</div>
+                        <div class="gallery-overlay">
+                            <h4>생일 미역국</h4>
+                            <p>태어난 날을 축하하는 마음</p>
+                        </div>
+                    </div>
+
+                    <!-- 작품 9 -->
+                    <div class="gallery-item" onclick="openGalleryModal('', '추석 송편', '온 가족이 둘러앉아 빚던 송편, 그 시간이 그립습니다.')" style="background: linear-gradient(135deg, #81ecec, #00cec9);">
+                        <div class="gallery-placeholder">🥮</div>
+                        <div class="gallery-overlay">
+                            <h4>추석 송편</h4>
+                            <p>함께 빚던 추억</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 안내 -->
+        <section class="section" style="background: var(--bg-warm);">
+            <div class="container text-center">
+                <h2 class="section-title">AI 갤러리에 대하여</h2>
+                <p class="section-subtitle">
+                    이 갤러리의 이미지들은 AI가 어머니의 요리 이야기를 바탕으로 상상하여 그린 것입니다.<br>
+                    각 작품에는 요리에 담긴 감성과 추억이 녹아 있습니다.<br>
+                    기술과 감성이 만나 새로운 예술을 만들어냅니다.
+                </p>
+                <a href="recipes.html" class="btn btn-primary">연결된 요리 보러가기</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>어머니의 손맛 레시피</h3>
+                <p>한 어머니의 요리 인생을<br>디지털로 기록합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>메뉴</h3>
+                <p><a href="about.html">소개</a></p>
+                <p><a href="recipes.html">요리 아카이브</a></p>
+                <p><a href="cinema.html">AI 시네마</a></p>
+                <p><a href="gallery.html">AI 갤러리</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>연결</h3>
+                <p><a href="ai-talk.html">어머니 AI 톡</a></p>
+                <p><a href="story.html">이야기</a></p>
+                <p><a href="contact.html">연락하기</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 어머니의 손맛 레시피. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 테마 버튼 토글
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
