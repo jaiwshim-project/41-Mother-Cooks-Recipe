@@ -769,7 +769,7 @@ footer {
         top: 70px;
         left: 0;
         right: 0;
-        background: white;
+        background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 100%);
         flex-direction: column;
         padding: 2rem;
         gap: 1rem;
