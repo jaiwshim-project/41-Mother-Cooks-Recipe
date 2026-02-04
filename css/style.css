@@ -75,7 +75,7 @@ header {
 .logo {
     font-family: var(--font-title);
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: #003366;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -89,7 +89,7 @@ header {
 }
 
 .logo span {
-    color: var(--secondary-color);
+    color: #004080;
 }
 
 /* 데스크톱 네비게이션 */
@@ -101,7 +101,7 @@ header {
 
 .nav-menu a {
     font-size: 0.95rem;
-    color: var(--text-light);
+    color: #000000;
     padding: 0.5rem 0;
     position: relative;
 }
@@ -181,7 +181,7 @@ main {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     line-height: 1.4;
-    color: #FF69B4;
+    color: #FFD700;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
