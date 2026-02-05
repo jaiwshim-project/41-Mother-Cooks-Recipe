@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>식재료 사전 - 어머니의 손맛 레시피</title>
+    <meta name="description" content="어머니가 알려주시는 전통 식재료 이야기와 고르는 법">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="chef.png" alt="어머니"> 어머니의 <span>손맛 레시피</span></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="recipes.html">요리 아카이브</a></li>
+                    <li><a href="cinema.html">AI 시네마</a></li>
+                    <li><a href="gallery.html">AI 갤러리</a></li>
+                    <li><a href="ai-talk.html">어머니 AI 톡</a></li>
+                    <li><a href="story.html">이야기</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="dropdown-toggle">체험하기 ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="calendar.html">절기 달력</a></li>
+                            <li><a href="ingredients.html" class="active">식재료 사전</a></li>
+                            <li><a href="fridge.html">냉장고 파먹기</a></li>
+                            <li><a href="quiz.html">음식 퀴즈</a></li>
+                            <li><a href="guestbook.html">추억 방명록</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>식재료 사전</h1>
+            <p>어머니가 알려주시는 재료 고르는 법과 이야기</p>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <!-- 검색 -->
+                <div class="ingredient-search-box">
+                    <input type="text" id="ingredientSearch" class="ingredient-search" placeholder="재료 이름을 검색하세요 (예: 된장, 고추장, 참기름...)">
+                </div>
+
+                <!-- 카테고리 필터 -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">전체</button>
+                    <button class="filter-btn" data-filter="jang">장류</button>
+                    <button class="filter-btn" data-filter="oil">기름류</button>
+                    <button class="filter-btn" data-filter="veggie">채소류</button>
+                    <button class="filter-btn" data-filter="etc">기타</button>
+                </div>
+
+                <!-- 식재료 카드 -->
+                <div class="ingredient-grid" id="ingredientGrid">
+                    <!-- JS로 채워짐 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 어머니의 재료 철학 -->
+        <section class="section" style="background: var(--bg-warm);">
+            <div class="container text-center">
+                <h2 class="section-title">어머니의 재료 철학</h2>
+                <p class="section-subtitle">
+                    "좋은 재료가 반이야. 비싼 게 좋은 게 아니라,<br>
+                    제철에 나는 싱싱한 것이 제일 좋은 거야."
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 식재료 상세 모달 -->
+    <div class="ingredient-modal" id="ingredientModal" style="display:none;">
+        <div class="ingredient-modal-overlay" onclick="closeIngredientModal()"></div>
+        <div class="ingredient-modal-content" id="ingredientModalContent">
+            <!-- JS로 채워짐 -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>(c)어머니의 손맛 레시피</h3>
+                <p>우리 어머니의 요리 인생을<br>디지털로 기록합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>메뉴</h3>
+                <p><a href="about.html">소개</a></p>
+                <p><a href="recipes.html">요리 아카이브</a></p>
+                <p><a href="cinema.html">AI 시네마</a></p>
+                <p><a href="gallery.html">AI 갤러리</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>체험하기</h3>
+                <p><a href="calendar.html">절기 달력</a></p>
+                <p><a href="fridge.html">냉장고 파먹기</a></p>
+                <p><a href="quiz.html">음식 퀴즈</a></p>
+                <p><a href="guestbook.html">추억 방명록</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><a href="lab.html" style="color: #FFB6C1; text-decoration: underline;">&copy; 2026 어머니의 손맛 레시피 연구소</a>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

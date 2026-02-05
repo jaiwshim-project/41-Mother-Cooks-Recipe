@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음식 퀴즈 - 어머니의 손맛 레시피</title>
+    <meta name="description" content="한국 전통 음식에 대한 재미있는 퀴즈">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="chef.png" alt="어머니"> 어머니의 <span>손맛 레시피</span></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="recipes.html">요리 아카이브</a></li>
+                    <li><a href="cinema.html">AI 시네마</a></li>
+                    <li><a href="gallery.html">AI 갤러리</a></li>
+                    <li><a href="ai-talk.html">어머니 AI 톡</a></li>
+                    <li><a href="story.html">이야기</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="dropdown-toggle">체험하기 ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="calendar.html">절기 달력</a></li>
+                            <li><a href="ingredients.html">식재료 사전</a></li>
+                            <li><a href="fridge.html">냉장고 파먹기</a></li>
+                            <li><a href="quiz.html" class="active">음식 퀴즈</a></li>
+                            <li><a href="guestbook.html">추억 방명록</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>음식 퀴즈</h1>
+            <p>한국 전통 음식, 얼마나 알고 계신가요?</p>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="quiz-container" id="quizContainer">
+                    <!-- 시작 화면 -->
+                    <div class="quiz-start" id="quizStart">
+                        <div class="quiz-start-icon">👩‍🍳</div>
+                        <h2>어머니의 음식 퀴즈</h2>
+                        <p>10문제를 풀고 어머니의 수제자가 되어보세요!</p>
+                        <div class="quiz-difficulty">
+                            <p style="margin-bottom: 1rem; color: var(--text-muted);">난이도를 선택하세요:</p>
+                            <button class="btn btn-outline" onclick="startQuiz('easy')">초급 (쉬움)</button>
+                            <button class="btn btn-primary" onclick="startQuiz('medium')">중급 (보통)</button>
+                            <button class="btn btn-outline" onclick="startQuiz('hard')">고급 (어려움)</button>
+                        </div>
+                    </div>
+
+                    <!-- 퀴즈 진행 화면 -->
+                    <div class="quiz-play" id="quizPlay" style="display:none;">
+                        <div class="quiz-progress">
+                            <div class="quiz-progress-bar" id="quizProgressBar"></div>
+                        </div>
+                        <div class="quiz-info">
+                            <span id="quizCurrent">1</span> / <span id="quizTotal">10</span>
+                            <span class="quiz-score-display">점수: <span id="quizScoreLive">0</span></span>
+                        </div>
+                        <div class="quiz-question-card" id="quizQuestionCard">
+                            <h3 id="quizQuestion"></h3>
+                            <div class="quiz-options" id="quizOptions">
+                                <!-- JS로 채워짐 -->
+                            </div>
+                        </div>
+                        <div class="quiz-feedback" id="quizFeedback" style="display:none;">
+                            <p id="quizFeedbackText"></p>
+                            <button class="btn btn-primary" onclick="nextQuestion()">다음 문제</button>
+                        </div>
+                    </div>
+
+                    <!-- 결과 화면 -->
+                    <div class="quiz-result" id="quizResult" style="display:none;">
+                        <div class="quiz-result-icon" id="quizResultIcon"></div>
+                        <h2 id="quizResultTitle"></h2>
+                        <p class="quiz-result-score" id="quizResultScore"></p>
+                        <p class="quiz-result-message" id="quizResultMessage"></p>
+                        <div class="quiz-result-actions">
+                            <button class="btn btn-primary" onclick="restartQuiz()">다시 도전하기</button>
+                            <a href="recipes.html" class="btn btn-outline">레시피 둘러보기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>(c)어머니의 손맛 레시피</h3>
+                <p>우리 어머니의 요리 인생을<br>디지털로 기록합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>메뉴</h3>
+                <p><a href="about.html">소개</a></p>
+                <p><a href="recipes.html">요리 아카이브</a></p>
+                <p><a href="cinema.html">AI 시네마</a></p>
+                <p><a href="gallery.html">AI 갤러리</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>체험하기</h3>
+                <p><a href="calendar.html">절기 달력</a></p>
+                <p><a href="fridge.html">냉장고 파먹기</a></p>
+                <p><a href="quiz.html">음식 퀴즈</a></p>
+                <p><a href="guestbook.html">추억 방명록</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><a href="lab.html" style="color: #FFB6C1; text-decoration: underline;">&copy; 2026 어머니의 손맛 레시피 연구소</a>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

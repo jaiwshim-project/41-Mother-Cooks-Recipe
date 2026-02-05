@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>냉장고 파먹기 - 어머니의 손맛 레시피</title>
+    <meta name="description" content="냉장고 속 재료로 만들 수 있는 어머니의 레시피 추천">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="chef.png" alt="어머니"> 어머니의 <span>손맛 레시피</span></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="recipes.html">요리 아카이브</a></li>
+                    <li><a href="cinema.html">AI 시네마</a></li>
+                    <li><a href="gallery.html">AI 갤러리</a></li>
+                    <li><a href="ai-talk.html">어머니 AI 톡</a></li>
+                    <li><a href="story.html">이야기</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="dropdown-toggle">체험하기 ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="calendar.html">절기 달력</a></li>
+                            <li><a href="ingredients.html">식재료 사전</a></li>
+                            <li><a href="fridge.html" class="active">냉장고 파먹기</a></li>
+                            <li><a href="quiz.html">음식 퀴즈</a></li>
+                            <li><a href="guestbook.html">추억 방명록</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>냉장고 파먹기</h1>
+            <p>냉장고에 있는 재료를 골라보세요. 어머니가 레시피를 추천해 드릴게요!</p>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="fridge-layout">
+                    <!-- 재료 선택 영역 -->
+                    <div class="fridge-select-area">
+                        <h2 class="section-title" style="text-align:left; font-size:1.5rem;">냉장고 속 재료를 골라주세요</h2>
+
+                        <div class="fridge-category">
+                            <h3>채소류</h3>
+                            <div class="fridge-items">
+                                <label class="fridge-item"><input type="checkbox" value="애호박"> 애호박</label>
+                                <label class="fridge-item"><input type="checkbox" value="양파"> 양파</label>
+                                <label class="fridge-item"><input type="checkbox" value="마늘"> 마늘</label>
+                                <label class="fridge-item"><input type="checkbox" value="청양고추"> 청양고추</label>
+                                <label class="fridge-item"><input type="checkbox" value="감자"> 감자</label>
+                                <label class="fridge-item"><input type="checkbox" value="당근"> 당근</label>
+                                <label class="fridge-item"><input type="checkbox" value="시금치"> 시금치</label>
+                                <label class="fridge-item"><input type="checkbox" value="콩나물"> 콩나물</label>
+                                <label class="fridge-item"><input type="checkbox" value="무"> 무</label>
+                                <label class="fridge-item"><input type="checkbox" value="파"> 파</label>
+                                <label class="fridge-item"><input type="checkbox" value="배추"> 배추</label>
+                                <label class="fridge-item"><input type="checkbox" value="고구마"> 고구마</label>
+                            </div>
+                        </div>
+
+                        <div class="fridge-category">
+                            <h3>단백질</h3>
+                            <div class="fridge-items">
+                                <label class="fridge-item"><input type="checkbox" value="두부"> 두부</label>
+                                <label class="fridge-item"><input type="checkbox" value="계란"> 계란</label>
+                                <label class="fridge-item"><input type="checkbox" value="소고기"> 소고기</label>
+                                <label class="fridge-item"><input type="checkbox" value="돼지고기"> 돼지고기</label>
+                                <label class="fridge-item"><input type="checkbox" value="닭고기"> 닭고기</label>
+                            </div>
+                        </div>
+
+                        <div class="fridge-category">
+                            <h3>기타 재료</h3>
+                            <div class="fridge-items">
+                                <label class="fridge-item"><input type="checkbox" value="김치"> 김치</label>
+                                <label class="fridge-item"><input type="checkbox" value="된장"> 된장</label>
+                                <label class="fridge-item"><input type="checkbox" value="고추장"> 고추장</label>
+                                <label class="fridge-item"><input type="checkbox" value="표고버섯"> 표고버섯</label>
+                                <label class="fridge-item"><input type="checkbox" value="미역"> 미역</label>
+                                <label class="fridge-item"><input type="checkbox" value="당면"> 당면</label>
+                                <label class="fridge-item"><input type="checkbox" value="콩"> 콩</label>
+                                <label class="fridge-item"><input type="checkbox" value="호박"> 호박</label>
+                                <label class="fridge-item"><input type="checkbox" value="참기름"> 참기름</label>
+                            </div>
+                        </div>
+
+                        <div class="fridge-actions">
+                            <button class="btn btn-primary" onclick="findRecipes()">레시피 찾기</button>
+                            <button class="btn btn-outline" onclick="clearFridge()">초기화</button>
+                        </div>
+                    </div>
+
+                    <!-- 결과 영역 -->
+                    <div class="fridge-results" id="fridgeResults">
+                        <div class="fridge-empty-state">
+                            <span style="font-size:4rem;">🍳</span>
+                            <h3>재료를 선택해주세요</h3>
+                            <p>냉장고에 있는 재료를 체크하면<br>만들 수 있는 레시피를 추천해 드려요!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>(c)어머니의 손맛 레시피</h3>
+                <p>우리 어머니의 요리 인생을<br>디지털로 기록합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>메뉴</h3>
+                <p><a href="about.html">소개</a></p>
+                <p><a href="recipes.html">요리 아카이브</a></p>
+                <p><a href="cinema.html">AI 시네마</a></p>
+                <p><a href="gallery.html">AI 갤러리</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>체험하기</h3>
+                <p><a href="calendar.html">절기 달력</a></p>
+                <p><a href="fridge.html">냉장고 파먹기</a></p>
+                <p><a href="quiz.html">음식 퀴즈</a></p>
+                <p><a href="guestbook.html">추억 방명록</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><a href="lab.html" style="color: #FFB6C1; text-decoration: underline;">&copy; 2026 어머니의 손맛 레시피 연구소</a>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

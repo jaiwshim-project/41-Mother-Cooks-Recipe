@@ -23,6 +23,16 @@
                     <li><a href="gallery.html">AI 갤러리</a></li>
                     <li><a href="ai-talk.html">어머니 AI 톡</a></li>
                     <li><a href="story.html">이야기</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="dropdown-toggle">체험하기 ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="calendar.html">절기 달력</a></li>
+                            <li><a href="ingredients.html">식재료 사전</a></li>
+                            <li><a href="fridge.html">냉장고 파먹기</a></li>
+                            <li><a href="quiz.html">음식 퀴즈</a></li>
+                            <li><a href="guestbook.html">추억 방명록</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
 
@@ -61,13 +71,13 @@
 
             <div class="recipe-section">
                 <h2>만드는 법</h2>
-                <ol style="line-height: 2.5; padding-left: 1.5rem;">
-                    <li>멸치와 다시마로 육수를 우려냅니다. 어머니는 항상 "육수가 반이야"라고 하셨어요.</li>
+                <ol class="cooking-steps" style="line-height: 2.5; padding-left: 1.5rem;">
+                    <li data-timer="600">멸치와 다시마로 육수를 우려냅니다. 어머니는 항상 "육수가 반이야"라고 하셨어요.</li>
                     <li>애호박, 양파, 버섯은 먹기 좋은 크기로 썹니다.</li>
                     <li>두부는 도톰하게 깍뚝 썰기 합니다.</li>
-                    <li>육수가 끓으면 된장을 풀고, 야채를 넣습니다.</li>
-                    <li>야채가 익으면 두부와 다진 마늘을 넣습니다.</li>
-                    <li>마지막에 청양고추를 넣고 한소끔 더 끓입니다.</li>
+                    <li data-timer="300">육수가 끓으면 된장을 풀고, 야채를 넣습니다.</li>
+                    <li data-timer="180">야채가 익으면 두부와 다진 마늘을 넣습니다.</li>
+                    <li data-timer="120">마지막에 청양고추를 넣고 한소끔 더 끓입니다.</li>
                     <li>불을 끄기 직전, 파를 송송 썰어 올립니다.</li>
                 </ol>
             </div>
@@ -94,10 +104,15 @@
             <div class="recipe-section">
                 <h2>더 알아보기</h2>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button class="btn btn-primary" onclick="playDocent('된장찌개는 어머니가 가장 자주 해주시던 요리입니다. 집에 들어서면 맡아지던 그 냄새, 구수하고 따뜻한 된장 향이 온 집안에 퍼져있었죠. 어머니는 늘 말씀하셨어요. 된장찌개는 정성이라고. 급하게 만들면 맛이 다르다고요. 그래서 항상 천천히, 정성스럽게 끓이셨습니다.')">
+                    <button class="btn btn-primary" onclick="startCookingMode()">
+                        👨‍🍳 조리 모드 시작
+                    </button>
+                    <button class="btn btn-outline" onclick="printRecipeCard()">
+                        🖨️ 레시피 카드 인쇄
+                    </button>
+                    <button class="btn btn-outline" onclick="playDocent('된장찌개는 어머니가 가장 자주 해주시던 요리입니다. 집에 들어서면 맡아지던 그 냄새, 구수하고 따뜻한 된장 향이 온 집안에 퍼져있었죠. 어머니는 늘 말씀하셨어요. 된장찌개는 정성이라고. 급하게 만들면 맛이 다르다고요. 그래서 항상 천천히, 정성스럽게 끓이셨습니다.')">
                         🎧 AI 도슨트 듣기
                     </button>
-                    <a href="cinema.html" class="btn btn-outline">🎬 관련 영상 보기</a>
                     <a href="ai-talk.html?topic=된장찌개" class="btn btn-outline">💬 어머니께 물어보기</a>
                 </div>
             </div>
@@ -129,6 +144,72 @@
         </div>
     </main>
 
+    <!-- 조리 모드 오버레이 -->
+    <div class="cooking-mode-overlay" id="cookingModeOverlay" style="display:none;">
+        <div class="cooking-mode-header">
+            <h2>👨‍🍳 조리 모드</h2>
+            <button class="cooking-mode-close" onclick="exitCookingMode()">&times; 나가기</button>
+        </div>
+        <div class="cooking-mode-body">
+            <div class="cooking-step-display">
+                <div class="cooking-step-number">
+                    단계 <span id="cookingStepCurrent">1</span> / <span id="cookingStepTotal">7</span>
+                </div>
+                <div class="cooking-step-text" id="cookingStepText"></div>
+                <div class="cooking-timer" id="cookingTimer" style="display:none;">
+                    <div class="timer-display" id="timerDisplay">00:00</div>
+                    <div class="timer-controls">
+                        <button class="btn btn-primary" id="timerStartBtn" onclick="toggleTimer()">타이머 시작</button>
+                        <button class="btn btn-outline" onclick="resetTimer()">초기화</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cooking-step-nav">
+                <button class="btn btn-outline" id="cookingPrevBtn" onclick="prevCookingStep()">← 이전</button>
+                <button class="btn btn-outline" onclick="speakCurrentStep()">🔊 음성 안내</button>
+                <button class="btn btn-primary" id="cookingNextBtn" onclick="nextCookingStep()">다음 →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 인쇄용 레시피 카드 (숨겨진 영역) -->
+    <div class="print-recipe-card" id="printRecipeCard">
+        <div class="print-card-header">
+            <h1>🍲 된장찌개</h1>
+            <p class="print-card-quote">"집에 오면 이 냄새가 나야 해. 그래야 집 같지."</p>
+        </div>
+        <div class="print-card-body">
+            <div class="print-card-ingredients">
+                <h2>재료</h2>
+                <ul>
+                    <li>애호박 1/2개</li>
+                    <li>양파 1/2개</li>
+                    <li>마늘 3쪽</li>
+                    <li>청양고추 1개</li>
+                    <li>두부 1/2모</li>
+                    <li>표고버섯 2개</li>
+                    <li>된장 2큰술</li>
+                    <li>멸치 다시마 육수 3컵</li>
+                </ul>
+            </div>
+            <div class="print-card-steps">
+                <h2>만드는 법</h2>
+                <ol>
+                    <li>멸치와 다시마로 육수를 우려냅니다.</li>
+                    <li>애호박, 양파, 버섯은 먹기 좋은 크기로 썹니다.</li>
+                    <li>두부는 도톰하게 깍뚝 썰기 합니다.</li>
+                    <li>육수가 끓으면 된장을 풀고, 야채를 넣습니다.</li>
+                    <li>야채가 익으면 두부와 다진 마늘을 넣습니다.</li>
+                    <li>청양고추를 넣고 한소끔 더 끓입니다.</li>
+                    <li>불을 끄기 직전, 파를 송송 썰어 올립니다.</li>
+                </ol>
+            </div>
+        </div>
+        <div class="print-card-footer">
+            <p>어머니의 손맛 레시피 | momcook.com</p>
+        </div>
+    </div>
+
     <!-- 푸터 -->
     <footer>
         <div class="footer-container">
@@ -144,10 +225,11 @@
                 <p><a href="gallery.html">AI 갤러리</a></p>
             </div>
             <div class="footer-section">
-                <h3>연결</h3>
-                <p><a href="ai-talk.html">어머니 AI 톡</a></p>
-                <p><a href="story.html">이야기</a></p>
-                <p><a href="contact.html">연락하기</a></p>
+                <h3>체험하기</h3>
+                <p><a href="calendar.html">절기 달력</a></p>
+                <p><a href="fridge.html">냉장고 파먹기</a></p>
+                <p><a href="quiz.html">음식 퀴즈</a></p>
+                <p><a href="guestbook.html">추억 방명록</a></p>
             </div>
         </div>
         <div class="footer-bottom">

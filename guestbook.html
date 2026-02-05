@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추억 방명록 - 어머니의 손맛 레시피</title>
+    <meta name="description" content="여러분의 어머니 레시피 추억을 나눠주세요">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="chef.png" alt="어머니"> 어머니의 <span>손맛 레시피</span></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="recipes.html">요리 아카이브</a></li>
+                    <li><a href="cinema.html">AI 시네마</a></li>
+                    <li><a href="gallery.html">AI 갤러리</a></li>
+                    <li><a href="ai-talk.html">어머니 AI 톡</a></li>
+                    <li><a href="story.html">이야기</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="dropdown-toggle">체험하기 ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="calendar.html">절기 달력</a></li>
+                            <li><a href="ingredients.html">식재료 사전</a></li>
+                            <li><a href="fridge.html">냉장고 파먹기</a></li>
+                            <li><a href="quiz.html">음식 퀴즈</a></li>
+                            <li><a href="guestbook.html" class="active">추억 방명록</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>추억 방명록</h1>
+            <p>여러분의 어머니 음식 추억을 나눠주세요</p>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="guestbook-layout">
+                    <!-- 글쓰기 폼 -->
+                    <div class="guestbook-form-area">
+                        <div class="guestbook-form">
+                            <h2 style="font-family: var(--font-title); color: var(--primary-color); margin-bottom: 1.5rem;">우리 엄마의 한 가지 레시피</h2>
+                            <div class="form-group">
+                                <label for="gbName">이름 (닉네임)</label>
+                                <input type="text" id="gbName" placeholder="예: 그리운 딸">
+                            </div>
+                            <div class="form-group">
+                                <label for="gbFood">어머니의 음식</label>
+                                <input type="text" id="gbFood" placeholder="예: 김치찌개, 잡채, 미역국...">
+                            </div>
+                            <div class="form-group">
+                                <label for="gbMemory">그 음식에 담긴 추억</label>
+                                <textarea id="gbMemory" rows="5" placeholder="그 음식을 먹으면 떠오르는 기억이 있나요?"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>기분 이모지</label>
+                                <div class="emoji-picker">
+                                    <button type="button" class="emoji-btn" data-emoji="😊" onclick="selectEmoji(this)">😊</button>
+                                    <button type="button" class="emoji-btn" data-emoji="🥲" onclick="selectEmoji(this)">🥲</button>
+                                    <button type="button" class="emoji-btn" data-emoji="❤️" onclick="selectEmoji(this)">❤️</button>
+                                    <button type="button" class="emoji-btn" data-emoji="🙏" onclick="selectEmoji(this)">🙏</button>
+                                    <button type="button" class="emoji-btn" data-emoji="🍚" onclick="selectEmoji(this)">🍚</button>
+                                    <button type="button" class="emoji-btn" data-emoji="👩‍🍳" onclick="selectEmoji(this)">👩‍🍳</button>
+                                </div>
+                                <input type="hidden" id="gbEmoji" value="😊">
+                            </div>
+                            <button class="btn btn-primary" style="width:100%;" onclick="submitGuestbook()">추억 남기기</button>
+                        </div>
+                    </div>
+
+                    <!-- 방명록 목록 -->
+                    <div class="guestbook-list-area">
+                        <div class="guestbook-count">
+                            <span id="gbCount">0</span>개의 추억이 모였습니다
+                        </div>
+                        <div class="guestbook-entries" id="guestbookEntries">
+                            <!-- JS로 채워짐 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>(c)어머니의 손맛 레시피</h3>
+                <p>우리 어머니의 요리 인생을<br>디지털로 기록합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h3>메뉴</h3>
+                <p><a href="about.html">소개</a></p>
+                <p><a href="recipes.html">요리 아카이브</a></p>
+                <p><a href="cinema.html">AI 시네마</a></p>
+                <p><a href="gallery.html">AI 갤러리</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>체험하기</h3>
+                <p><a href="calendar.html">절기 달력</a></p>
+                <p><a href="fridge.html">냉장고 파먹기</a></p>
+                <p><a href="quiz.html">음식 퀴즈</a></p>
+                <p><a href="guestbook.html">추억 방명록</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><a href="lab.html" style="color: #FFB6C1; text-decoration: underline;">&copy; 2026 어머니의 손맛 레시피 연구소</a>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

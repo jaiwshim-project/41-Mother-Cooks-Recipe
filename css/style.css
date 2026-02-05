@@ -97,6 +97,7 @@ header {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-menu a {
@@ -125,6 +126,53 @@ header {
 .nav-menu a:hover,
 .nav-menu a.active {
     color: var(--primary-color);
+}
+
+/* 드롭다운 메뉴 */
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    min-width: 180px;
+    padding: 0.5rem 0;
+    list-style: none;
+    z-index: 1001;
+    border: 1px solid rgba(255, 182, 193, 0.3);
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    white-space: nowrap;
+}
+
+.dropdown-menu li a::after {
+    display: none;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li a.active {
+    background: var(--bg-warm);
+    color: var(--primary-color);
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown.open .dropdown-menu {
+    display: block;
 }
 
 /* 햄버거 메뉴 */
@@ -705,6 +753,7 @@ main {
     border-radius: 10px;
     font-size: 1rem;
     transition: var(--transition);
+    font-family: var(--font-body);
 }
 
 .form-group input:focus,
@@ -716,6 +765,929 @@ main {
 .form-group textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+/* ===================================
+   조리 모드
+   =================================== */
+.cooking-mode-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.cooking-mode-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.cooking-mode-header h2 {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+}
+
+.cooking-mode-close {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.cooking-mode-close:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.cooking-mode-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.cooking-step-display {
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+}
+
+.cooking-step-number {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.cooking-step-text {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cooking-timer {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.timer-display {
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    color: #FF6B9D;
+    margin-bottom: 1rem;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.cooking-step-nav {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+/* ===================================
+   인쇄용 레시피 카드
+   =================================== */
+.print-recipe-card {
+    display: none;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .print-recipe-card,
+    .print-recipe-card * {
+        visibility: visible;
+    }
+
+    .print-recipe-card {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        padding: 2rem;
+        z-index: 99999;
+    }
+
+    .print-card-header {
+        text-align: center;
+        border-bottom: 3px solid #E91E63;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .print-card-header h1 {
+        font-size: 2rem;
+        color: #E91E63;
+        margin-bottom: 0.5rem;
+    }
+
+    .print-card-quote {
+        font-style: italic;
+        color: #888;
+        font-size: 1rem;
+    }
+
+    .print-card-body {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 2rem;
+    }
+
+    .print-card-body h2 {
+        color: #E91E63;
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+        border-bottom: 1px solid #FFB6C1;
+        padding-bottom: 0.3rem;
+    }
+
+    .print-card-ingredients ul {
+        list-style: none;
+        line-height: 2;
+    }
+
+    .print-card-steps ol {
+        padding-left: 1.2rem;
+        line-height: 2;
+    }
+
+    .print-card-footer {
+        text-align: center;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid #ddd;
+        color: #aaa;
+        font-size: 0.85rem;
+    }
+}
+
+/* ===================================
+   절기 달력
+   =================================== */
+.today-season-box {
+    background: linear-gradient(135deg, #FF6B9D 0%, #FF8E9E 50%, #FFECD2 100%);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(233, 30, 99, 0.2);
+}
+
+.today-season-box h2 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.today-season-box .today-date {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.today-season-box .today-recipe {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.today-season-box .mother-says {
+    font-style: italic;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+.season-filter-bar {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.calendar-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition);
+    cursor: default;
+}
+
+.calendar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.calendar-card.current {
+    border-left-color: #FF6B9D;
+    background: linear-gradient(145deg, #FFF0F5, #FFE4EC);
+}
+
+.calendar-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.calendar-card-name {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.calendar-card-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.calendar-card-food {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-card-quote {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.calendar-card-season-tag {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.season-spring { background: #E8F5E9; color: #2E7D32; }
+.season-summer { background: #E3F2FD; color: #1565C0; }
+.season-autumn { background: #FFF3E0; color: #E65100; }
+.season-winter { background: #F3E5F5; color: #7B1FA2; }
+
+/* ===================================
+   식재료 사전
+   =================================== */
+.ingredient-search-box {
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.ingredient-search {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+    font-family: var(--font-body);
+}
+
+.ingredient-search:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+}
+
+.ingredient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.ingredient-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    cursor: pointer;
+    border: 1px solid rgba(255, 182, 193, 0.2);
+}
+
+.ingredient-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--secondary-color);
+}
+
+.ingredient-card-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.ingredient-card-name {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.ingredient-card-category {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.ingredient-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* 식재료 모달 */
+.ingredient-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.ingredient-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.ingredient-modal-content {
+    position: relative;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 10vh auto;
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.ingredient-modal-content h2 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.ingredient-modal-content h3 {
+    color: var(--primary-color);
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1rem;
+}
+
+.ingredient-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+/* ===================================
+   냉장고 파먹기
+   =================================== */
+.fridge-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.fridge-select-area {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.fridge-category {
+    margin-bottom: 1.5rem;
+}
+
+.fridge-category h3 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--bg-warm);
+}
+
+.fridge-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.fridge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--bg-cream);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.fridge-item:has(input:checked) {
+    background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 100%);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.fridge-item input {
+    display: none;
+}
+
+.fridge-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.fridge-results {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+    min-height: 400px;
+}
+
+.fridge-empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+}
+
+.fridge-empty-state h3 {
+    margin: 1rem 0 0.5rem;
+    color: var(--text-light);
+}
+
+.fridge-result-card {
+    background: var(--bg-cream);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 182, 193, 0.3);
+    transition: var(--transition);
+}
+
+.fridge-result-card:hover {
+    border-color: var(--secondary-color);
+}
+
+.fridge-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.fridge-result-name {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.fridge-match-rate {
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.match-high { background: #E8F5E9; color: #2E7D32; }
+.match-medium { background: #FFF3E0; color: #E65100; }
+.match-low { background: #FFEBEE; color: #C62828; }
+
+.fridge-result-ingredients {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.fridge-result-ingredients .has {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.fridge-result-desc {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+}
+
+/* ===================================
+   음식 퀴즈
+   =================================== */
+.quiz-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.quiz-start {
+    text-align: center;
+}
+
+.quiz-start-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.quiz-start h2 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.quiz-start p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.quiz-difficulty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.quiz-difficulty .btn {
+    min-width: 200px;
+}
+
+.quiz-progress {
+    height: 8px;
+    background: var(--bg-warm);
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.quiz-progress-bar {
+    height: 100%;
+    background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 100%);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+.quiz-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.quiz-score-display {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.quiz-question-card {
+    text-align: center;
+}
+
+.quiz-question-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.quiz-option {
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+    background: white;
+    font-size: 1rem;
+}
+
+.quiz-option:hover {
+    border-color: var(--secondary-color);
+    background: var(--bg-cream);
+}
+
+.quiz-option.correct {
+    border-color: #4CAF50;
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.quiz-option.wrong {
+    border-color: #F44336;
+    background: #FFEBEE;
+    color: #C62828;
+}
+
+.quiz-option.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.quiz-feedback {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-cream);
+    border-radius: 12px;
+}
+
+.quiz-feedback p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.quiz-result {
+    text-align: center;
+}
+
+.quiz-result-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.quiz-result h2 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.quiz-result-score {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.quiz-result-message {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.quiz-result-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===================================
+   추억 방명록
+   =================================== */
+.guestbook-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.guestbook-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+.emoji-picker {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.emoji-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.emoji-btn:hover,
+.emoji-btn.selected {
+    border-color: var(--primary-color);
+    background: var(--bg-warm);
+    transform: scale(1.1);
+}
+
+.guestbook-count {
+    text-align: center;
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.guestbook-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.guestbook-entry {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    border-left: 4px solid var(--accent-color);
+    transition: var(--transition);
+}
+
+.guestbook-entry:hover {
+    border-left-color: var(--primary-color);
+}
+
+.guestbook-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.guestbook-entry-name {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.guestbook-entry-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.guestbook-entry-food {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.guestbook-entry-memory {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.guestbook-entry-emoji {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+}
+
+/* ===================================
+   음식 추억 타임라인
+   =================================== */
+.food-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 60px;
+}
+
+.food-timeline::before {
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #FFECD2 0%, #FF6B9D 50%, #E91E63 100%);
+}
+
+.food-timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.food-timeline-year {
+    position: absolute;
+    left: -60px;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    z-index: 1;
+}
+
+.food-timeline-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: var(--transition);
+}
+
+.food-timeline-card:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.food-timeline-emoji {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.food-timeline-info h3 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.food-timeline-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+}
+
+.food-timeline-link {
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.food-timeline-link:hover {
+    color: var(--primary-color);
 }
 
 /* ===================================
@@ -789,6 +1761,24 @@ footer {
         transform: translateY(0);
     }
 
+    /* 드롭다운 모바일 */
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: rgba(255,255,255,0.3);
+        border-radius: 8px;
+        margin-top: 0.5rem;
+        border: none;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .nav-dropdown.open .dropdown-menu {
+        display: block;
+    }
+
     /* 히어로 */
     .hero {
         height: auto;
@@ -860,12 +1850,76 @@ footer {
     .page-header h1 {
         font-size: 1.8rem;
     }
+
+    /* 냉장고 파먹기 */
+    .fridge-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* 방명록 */
+    .guestbook-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* 조리 모드 */
+    .cooking-step-text {
+        font-size: 1.3rem;
+    }
+
+    .timer-display {
+        font-size: 2.5rem;
+    }
+
+    .cooking-step-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* 퀴즈 */
+    .quiz-container {
+        padding: 1.5rem;
+    }
+
+    /* 음식 타임라인 */
+    .food-timeline {
+        padding-left: 50px;
+    }
+
+    .food-timeline-year {
+        left: -50px;
+        width: 40px;
+        height: 40px;
+        font-size: 0.65rem;
+    }
+
+    .food-timeline-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* 캘린더 */
+    .calendar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* 식재료 */
+    .ingredient-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* 태블릿 */
 @media (min-width: 769px) and (max-width: 1024px) {
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fridge-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .guestbook-layout {
+        grid-template-columns: 1fr;
     }
 }
 
